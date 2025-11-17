@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: travel-backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: travel-backend
+  template:
+    metadata:
+      labels:
+        app: travel-backend
+    spec:
+      containers:
+      - name: travel-backend
+        image: your_dockerhub_username/travel-backend:v1
+        ports:
+        - containerPort: 3000
